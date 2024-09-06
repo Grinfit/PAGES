@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alerta de Seguridad</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-color: #ff0000; /* Fondo rojo */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+
+        #alerta, #segundaAlerta, #mensajeFinal {
+            background-color: #ffffff; /* Fondo blanco */
+            border: 2px solid #000000; /* Borde negro */
+            padding: 20px;
+            text-align: center;
+            width: 400px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            display: none;
+        }
+
+        #alerta img, #segundaAlerta img, #mensajeFinal img {
+            width: 50px;
+        }
+
+        h1 {
+            color: #ff0000; /* Texto rojo */
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #000000; /* Texto negro */
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #ff0000; /* Botón rojo */
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #d00000;
+        }
+
+    </style>
+    <script>
+        // Mostrar segundo cuadro de advertencia
+        function mostrarSegundaAlerta() {
+            document.getElementById("alerta").style.display = "none";
+            document.getElementById("segundaAlerta").style.display = "block";
+        }
+
+        // Mostrar mensaje final independientemente de la elección
+        function mostrarMensajeFinal() {
+            document.getElementById("segundaAlerta").style.display = "none";
+            document.getElementById("mensajeFinal").style.display = "block";
+        }
+    </script>
+</head>
+<body>
+    <!-- Primer cuadro de alerta -->
+    <div id="alerta" style="display: block;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Exclamation_mark_in_red_triangle.svg/2048px-Exclamation_mark_in_red_triangle.svg.png" alt="Alerta">
+        <h1>⚠️ Advertencia de Seguridad</h1>
+        <p>¿Está seguro de que desea darle acceso completo a este dispositivo?</p>
+        <button onclick="mostrarSegundaAlerta()">Continuar</button>
+    </div>
+
+    <!-- Segundo cuadro de alerta -->
+    <div id="segundaAlerta">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Exclamation_mark_in_red_triangle.svg/2048px-Exclamation_mark_in_red_triangle.svg.png" alt="Alerta">
+        <h1>⚠️ Confirmación Final</h1>
+        <p>Aceptar la acción podría comprometer la seguridad del dispositivo. ¿Desea continuar?</p>
+        <button onclick="mostrarMensajeFinal()">Aceptar</button>
+        <button onclick="mostrarMensajeFinal()">Cancelar</button>
+    </div>
+
+    <!-- Mensaje final -->
+    <div id="mensajeFinal">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Exclamation_mark_in_red_triangle.svg/2048px-Exclamation_mark_in_red_triangle.svg.png" alt="Alerta">
+        <h1>⚠️ Alerta</h1>
+        <p>⚠️ Spyware conectado en tu dispositivo.</p>
+        <button onclick="window.close()">Aceptar</button>
+    </div>
+
+</body>
+</html>
